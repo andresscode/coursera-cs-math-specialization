@@ -6,9 +6,10 @@ def gcd(a, b):
   return gcd(b, a % b) if b > 0 else a
 
 
-def squares(n, m):
-    x = gcd(n, m) if n >= m else gcd(m, n)
-    return (n // x) * (m // x)
+def wrapper(a, b):
+  if a >= b:
+    return gcd(a, b)
+  else:
+    return gcd(b, a)
 
-
-print(squares(int(sys.argv[1]), int(sys.argv[2])))
+print(wrapper(int(sys.argv[1]), int(sys.argv[2])))
